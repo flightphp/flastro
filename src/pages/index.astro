@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <div style="display: contents" id="logged-user-welcome"></div>
+
+  <p>
+    Visit the <a href="https://docs.flightphp.com">FlightPHP tutorial</a>
+    to learn how to build FlightPHP APIs.
+  </p>
+
+  <p>
+    Visit the <a href="https://docs.astro.build/tutorial">Astro tutorial</a>
+    to learn how to build Astro apps.
+  </p>
+</Layout>
+
+<script>
+  import { getLoggedUser } from "@/api";
+
+  getLoggedUser().then((loggedUser) => {
+    if (loggedUser.isLogged) {
+      document.getElementById("logged-user-welcome")!.innerHTML = `
+        <h2>Welcome ${loggedUser.email}</h2>
+      `;
+    }
+  });
+</script>

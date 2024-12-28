@@ -1,0 +1,44 @@
+{
+  "name": "flightphp/flastro",
+  "description": "🚀 Flastro is a quick and easy Astro starter template with a FlightPHP backend 💻🌐✨",
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "flightphp/core": "^3.13",
+    "php": ">=7.4",
+    "symfony/dotenv": "^7.2"
+  },
+  "scripts": {
+    "build": [
+      "composer install --no-dev -o",
+      "php -r \"if (!is_dir('node_modules')) `npm i`;\"",
+      "npm run build",
+      "composer archive"
+    ]
+  },
+  "archive": {
+    "exclude": [
+      ".astro",
+      ".vscode",
+      "node_modules",
+      "public",
+      "src",
+      ".editorconfig",
+      ".env",
+      ".env.production",
+      ".gitignore",
+      "astro.config.mjs",
+      "composer.*",
+      "LICENSE",
+      "package.json",
+      "pnpm-lock.yaml",
+      "README.md",
+      "tsconfig.json",
+      "*.tar",
+      "flightphp-*"
+    ]
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^7.2"
+  }
+}
